@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
 import Landing from "./pages/Landing";
-import Dashboard from "./pages/dashboard/Dashboard1";
+// import Dashboard from "./pages/dashboard/Dashboard1";
 import Marketplace from "./pages/marketplace/Marketplace";
 import "./App.css";
 
@@ -29,7 +29,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/marketplace" element={<Marketplace />} />
         </Routes>
         <Footer />

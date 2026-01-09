@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Opportunities = () => {
+  const navigate = useNavigate();
+
   const opportunities = [
     {
       type: "Internship",
@@ -40,8 +43,21 @@ const Opportunities = () => {
     },
   ];
 
+  const handleViewDetails = (opportunity) => {
+    // You could navigate to a detailed view or pass data
+    navigate(
+      `/marketplace?opportunity=${encodeURIComponent(
+        JSON.stringify(opportunity)
+      )}`
+    );
+  };
+
+  const handleSeeAllOpportunities = () => {
+    navigate("/marketplace");
+  };
+
   return (
-    <section className="opportunities">
+    <section className="opportunities" id="opportunities">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Featured Opportunities</h2>
@@ -77,12 +93,22 @@ const Opportunities = () => {
                 {opp.duration && <span>⏱️ {opp.duration}</span>}
                 {opp.paid && <span>💰 Paid Project</span>}
               </div>
-              <button className="btn btn-outline">View Details</button>
+              <button
+                className="btn btn-outline"
+                onClick={() => handleViewDetails(opp)}
+              >
+                View Details
+              </button>
             </div>
           ))}
         </div>
         <div className="opportunities-cta">
-          <button className="btn btn-primary">See All Opportunities</button>
+          <button
+            className="btn btn-primary"
+            onClick={handleSeeAllOpportunities}
+          >
+            See All Opportunities
+          </button>
         </div>
       </div>
     </section>

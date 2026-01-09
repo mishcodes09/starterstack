@@ -1,6 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleJoinStarterStack = () => {
+    navigate("/dashboard");
+  };
+
+  const handleBrowseOpportunities = () => {
+    navigate("/marketplace");
+  };
+
   return (
     <section className="hero">
       <div className="hero-background">
@@ -17,7 +28,10 @@ const Hero = () => {
             projects. Build your skills and launch your tech career.
           </p>
           <div className="hero-buttons">
-            <button className="btn btn-primary">
+            <button
+              className="btn btn-primary"
+              onClick={handleJoinStarterStack}
+            >
               Join StarterStack
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
@@ -29,7 +43,12 @@ const Hero = () => {
                 />
               </svg>
             </button>
-            <button className="btn btn-secondary">Browse Opportunities</button>
+            <button
+              className="btn btn-secondary"
+              onClick={handleBrowseOpportunities}
+            >
+              Browse Opportunities
+            </button>
           </div>
           <div className="hero-stats">
             <div className="stat">

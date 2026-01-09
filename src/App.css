@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
   margin: 0;
   padding: 0;
@@ -134,6 +136,24 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* Update base .btn class for consistency */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 44px; /* Add this line for consistent minimum height */
+  box-sizing: border-box; /* Ensure padding is included in height */
 }
 
 .btn-text {
@@ -1333,19 +1353,6 @@ section {
   }
 }
 
-.opp-meta span:nth-child(1)::before {
-  content: "💰 ";
-}
-.opp-meta span:nth-child(2)::before {
-  content: "💸 ";
-}
-.opp-meta span:nth-child(3)::before {
-  content: "⏱️ ";
-}
-.opp-meta span:nth-child(4)::before {
-  content: "💰 ";
-}
-
 /* How It Works */
 .how-it-works {
   background: var(--white);
@@ -1544,7 +1551,7 @@ section {
 
 /* Footer */
 .footer {
-  background: var(--gray-900);
+  background: var(--color-black);
   color: var(--gray-300);
   padding: 3rem 0 1rem;
 }
@@ -1700,5 +1707,450 @@ section {
   .opportunities-grid,
   .stories-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Marketplace Page Styles */
+.marketplace {
+  padding-top: 100px;
+  min-height: 100vh;
+  background: var(--white);
+}
+
+.marketplace-header {
+  background: var(--white);
+  padding: 3rem;
+}
+
+.marketplace-header h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.marketplace-header p {
+  text-align: center;
+  color: var(--gray-600);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(235, 46, 171, 0.1);
+}
+
+.search-input::placeholder {
+  color: var(--gray-400);
+}
+
+/* Marketplace Filters */
+.marketplace-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  color: var(--gray-700);
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.filter-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Enhanced Opportunity Cards for Marketplace */
+.marketplace .opportunities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.marketplace .opportunity-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.marketplace .opp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.marketplace .posted-date {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  background: var(--gray-100);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.marketplace .opp-description {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.marketplace .opp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.marketplace .opp-meta .applicants {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  margin-left: 0;
+}
+
+.marketplace .opp-meta span {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevent text from breaking */
+}
+
+.marketplace .opportunity-card:hover .opp-meta span {
+  background: var(--white);
+  border-color: var(--gray-300);
+  transform: translateY(-1px);
+}
+
+.marketplace .opp-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.marketplace .opp-actions .btn {
+  flex: 1;
+  justify-content: center;
+  height: 44px; /* Match the button height */
+  min-height: 44px; /* Ensure consistent minimum height */
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem; /* Same padding as .btn class */
+  border-radius: 0.75rem; /* Same border radius */
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.marketplace .opp-actions .btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.marketplace .opp-actions .btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.marketplace .opp-actions .btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  box-shadow: 0 4px 14px 0 rgba(235, 46, 171, 0.2);
+}
+
+.marketplace .opp-actions .btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(235, 46, 171, 0.3);
+}
+
+/* Detail View */
+.marketplace.detail-view {
+  background: var(--white);
+  padding-bottom: 3rem;
+}
+
+.opportunity-detail {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-top: 2rem;
+}
+
+.detail-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.detail-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 1.5rem 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.detail-company {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.detail-company h2 {
+  font-size: 1.5rem;
+  color: var(--gray-800);
+  font-weight: 600;
+}
+
+.detail-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.detail-main h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 2rem 0 1rem;
+}
+
+.detail-main p {
+  color: var(--gray-700);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.detail-main ul {
+  color: var(--gray-700);
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.detail-main li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.detail-sidebar .apply-card {
+  background: var(--gray-50);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--gray-200);
+  margin-top: 3rem;
+}
+
+.apply-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+
+.apply-info {
+  margin-bottom: 2rem;
+}
+
+.apply-info p {
+  color: var(--gray-700);
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.apply-info strong {
+  color: var(--gray-900);
+}
+
+.apply-note {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--white);
+  border-radius: 2rem;
+  border: 1px solid var(--gray-200);
+  margin-bottom: 2rem;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.no-results p {
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+}
+
+/* Marketplace Footer */
+.marketplace-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: 1rem;
+  border: 1px solid var(--gray-200);
+  margin-top: 2rem;
+}
+
+.marketplace-footer p {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .marketplace .opportunities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .detail-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detail-sidebar .apply-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .marketplace {
+    padding-top: 80px;
+  }
+
+  .marketplace-header {
+    padding: 2rem;
+  }
+
+  .marketplace-header h1 {
+    font-size: 2rem;
+  }
+
+  .marketplace-filters {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .filter-actions {
+    justify-content: center;
+  }
+
+  .detail-title {
+    font-size: 2rem;
+  }
+
+  .marketplace-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .marketplace .opportunities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .marketplace-header {
+    padding: 1.5rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .header-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .opp-actions {
+    flex-direction: column;
+  }
+
+  .detail-title {
+    font-size: 1.75rem;
   }
 }
